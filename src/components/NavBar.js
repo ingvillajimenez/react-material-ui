@@ -12,6 +12,7 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem'
 import { ListItemText, Divider } from '@material-ui/core';
+import {Link} from 'react-router-dom';
 
 const styles = {
   root: {
@@ -54,9 +55,21 @@ class NavBar extends React.Component {
             <IconButton onClick={this.toggleDrawer} color='inherit' arial-label='Menu'>
               <MenuIcon />
             </IconButton>  
-            <Typography style={AppBarStyles} variant="h6" color="inherit">
+            <Typography variant='title' style={AppBarStyles} variant="h6" color="inherit">
               Muktek
             </Typography>
+            <div className=''>
+              <Link to='/'> 
+                <Typography variant='title' style={AppBarStyles} variant="h6" color="inherit">
+                  Home
+                </Typography>
+              </Link>
+              <Link to='/login'> 
+                <Typography variant='title' style={AppBarStyles} variant="h6" color="inherit">
+                  Login
+                </Typography>
+              </Link>
+            </div>
           </Toolbar>
         <Drawer open={this.state.open} onClose={this.toogleDrawer}>
           <div
@@ -70,11 +83,11 @@ class NavBar extends React.Component {
                 <ListItemText style={ListItemTextStyle} primary='Features' />
               </ListItem>
               <ListItem button>
-                Users
+                <Link to='/users'>Users</Link>
               </ListItem>
               <Divider />
               <ListItem button>
-                Treatment
+                <Link to='/treatments'>Treatments</Link>
               </ListItem>
             </List>
           </div>
